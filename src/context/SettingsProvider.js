@@ -28,12 +28,21 @@ const getCollapsedDrawerState = (get) => {
 };
 
 const SettingsProvider = ({ children }) => {
-  const { get } = useLocalStorage();
+  const { get, set } = useLocalStorage();
   const [mode, setMode] = useState(() => getThemeMode(get));
   const [collapsed, setCollapsed] = useState(() =>
     getCollapsedDrawerState(get)
   );
   const [open, setOpen] = useState(false);
+
+  const handleModeChange = (value) => {
+    setMode(value);
+    set("mode", value);
+  };
+  const hanldeCollapsedChange = (value) => {
+    setCollapsed(value);
+    set("collapsed", value);
+  };
 
   return (
     <SettingsContext.Provider
@@ -42,9 +51,9 @@ const SettingsProvider = ({ children }) => {
         drawerWidth: collapsed ? COLLAPSED_WIDTH : WIDTH,
         collapsed,
         open,
-        setMode,
-        setCollapsed,
         setOpen,
+        handleModeChange,
+        hanldeCollapsedChange,
       }}
     >
       <CssBaseline />

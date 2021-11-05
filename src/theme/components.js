@@ -2,7 +2,15 @@ export const createComponentsTheme = (theme) => ({
   MuiAvatar: {
     styleOverrides: {
       root: {
-        backgroundColor: theme.palette.grey[800],
+        backgroundColor: theme.palette.background.default,
+      },
+    },
+  },
+  MuiDrawer: {
+    styleOverrides: {
+      paper: {
+        background: theme.palette.secondary.main,
+        border: "none",
       },
     },
   },
@@ -13,9 +21,6 @@ export const createComponentsTheme = (theme) => ({
     styleOverrides: {
       root: {
         color: theme.palette.text.primary,
-        "&:hover": {
-          backgroundColor: theme.palette.grey[700],
-        },
       },
     },
   },
@@ -29,7 +34,33 @@ export const createComponentsTheme = (theme) => ({
           backgroundColor: theme.palette.background.default,
         },
         "&:hover": {
-          backgroundColor: theme.palette.grey[700],
+          backgroundColor: theme.palette.background.default,
+        },
+      },
+    },
+  },
+  MuiToggleButtonGroup: {
+    styleOverrides: {
+      root: {
+        background: theme.palette.background.default,
+        width: "100%",
+        padding: ".2rem",
+      },
+    },
+  },
+
+  MuiToggleButton: {
+    styleOverrides: {
+      root: {
+        backgroundColor: "transparent",
+        border: "none",
+        borderRadius: "16px !important",
+        padding: "0.7rem",
+        width: "100%",
+        textTransform: "none",
+        color: theme.palette.text.secondary,
+        "&.Mui-selected": {
+          backgroundColor: theme.palette.secondary.main,
         },
       },
     },

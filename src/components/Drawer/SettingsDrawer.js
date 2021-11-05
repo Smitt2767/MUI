@@ -1,14 +1,36 @@
 import React from "react";
-import { Drawer, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  ButtonGroup,
+  Drawer,
+  IconButton,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { useSettings } from "../../context/SettingsProvider";
 import { WIDTH } from "../../constants/drawer";
 import { Box } from "@mui/system";
+import ToggleButton from "../ToggleButton/ToggleButton";
+
+const modeButtons = [
+  { name: "Light", value: "light" },
+  { name: "Dark", value: "dark" },
+];
+const sidebarCollapsedButtons = [
+  { name: "Collapsed", value: 1 },
+  { name: "Full", value: 0 },
+];
 
 const SettingsDrawer = () => {
-  const { setOpen, open } = useSettings();
-  const theme = useTheme();
+  const {
+    setOpen,
+    open,
+    mode,
+    collapsed,
+    handleModeChange,
+    hanldeCollapsedChange,
+  } = useSettings();
   return (
     <Drawer
       variant="temporary"
@@ -16,7 +38,6 @@ const SettingsDrawer = () => {
         keepMounted: true,
       }}
       sx={{
-        display: { xs: "block", lg: "none" },
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: WIDTH,
@@ -31,7 +52,6 @@ const SettingsDrawer = () => {
           display: "flex",
           flexDirection: "column",
           minHeight: "100%",
-          backgroundColor: theme.palette.grey[900],
           padding: "1rem",
         }}
       >
@@ -40,6 +60,7 @@ const SettingsDrawer = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            marginBottom: "3rem",
           }}
         >
           <Typography
@@ -53,6 +74,46 @@ const SettingsDrawer = () => {
           <IconButton onClick={() => setOpen(false)}>
             <CloseIcon />
           </IconButton>
+        </Box>
+        <Box marginBottom={3}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold",
+            }}
+            gutterBottom
+          >
+            Mode
+          </Typography>
+          <ToggleButton
+            size="large"
+            value={mode}
+            onChange={(e) => {
+              handleModeChange(e.target.value);
+            }}
+            buttons={modeButtons}
+            exclusive={true}
+          />
+        </Box>
+        <Box marginBottom={3}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold",
+            }}
+            gutterBottom
+          >
+            Sidebar
+          </Typography>
+          <ToggleButton
+            size="large"
+            value={collapsed ? 1 : 0}
+            onChange={(e) => {
+              hanldeCollapsedChange(!!+e.target.value);
+            }}
+            buttons={sidebarCollapsedButtons}
+            exclusive={true}
+          />
         </Box>
       </Box>
     </Drawer>
