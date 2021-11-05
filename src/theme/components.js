@@ -1,8 +1,27 @@
 export const createComponentsTheme = (theme) => ({
+  MuiAppBar: {
+    styleOverrides: {
+      root: {
+        height: "3.5rem",
+        boxShadow: "none",
+        background: "none",
+      },
+    },
+  },
   MuiAvatar: {
     styleOverrides: {
       root: {
         backgroundColor: theme.palette.background.default,
+      },
+    },
+  },
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        width: "100%",
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
+        textTransform: "none",
       },
     },
   },
@@ -21,12 +40,16 @@ export const createComponentsTheme = (theme) => ({
     styleOverrides: {
       root: {
         color: theme.palette.text.primary,
+        "&:hover": {
+          backgroundColor: theme.palette.background.paper,
+        },
       },
     },
   },
   MuiListItem: {
     styleOverrides: {
       root: {
+        cursor: "pointer",
         borderRadius: 16,
         paddingTop: 12,
         paddingBottom: 12,
@@ -39,6 +62,7 @@ export const createComponentsTheme = (theme) => ({
       },
     },
   },
+
   MuiToggleButtonGroup: {
     styleOverrides: {
       root: {

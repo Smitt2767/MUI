@@ -1,8 +1,18 @@
+import { Box } from "@mui/system";
 import React from "react";
-import { useTheme } from "@emotion/react";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Home = () => {
-  return <div></div>;
+  return (
+    <>
+      <Navbar />
+      <Box
+        sx={{
+          height: "100rem",
+        }}
+      ></Box>
+    </>
+  );
 };
 
 export default Home;

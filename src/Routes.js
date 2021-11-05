@@ -2,12 +2,12 @@ import React, { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Calender from "./pages/Calender/Calender";
 
-const Home = lazy(() => import("./pages/Home/Home"));
-const Dashboard = lazy(() => import("./pages/Dashboard/Dashboard"));
-const Help = lazy(() => import("./pages/Help/Help"));
-const Profile = lazy(() => import("./pages/Profile/Profile"));
-const Projects = lazy(() => import("./pages/Projects/Projects"));
-const Users = lazy(() => import("./pages/Users/Users"));
+import Home from "./pages/Home/Home";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Help from "./pages/Help/Help";
+import Profile from "./pages/Profile/Profile";
+import Projects from "./pages/Projects/Projects";
+import Users from "./pages/Users/Users";
 
 const AppRoutes = () => {
   const routes = [

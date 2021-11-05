@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  ButtonGroup,
-  Drawer,
-  IconButton,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Drawer, IconButton, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { useSettings } from "../../context/SettingsProvider";
