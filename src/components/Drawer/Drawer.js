@@ -10,7 +10,9 @@ import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
-
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { WIDTH } from "../../constants/drawer";
 import { useSettings } from "../../context/SettingsProvider";
 import Logo from "../Logo/Logo";
 import {
@@ -32,7 +34,16 @@ const drawerItems = [
 ];
 
 const SideDrawer = () => {
-  const { drawerWidth, collapsed, setOpen } = useSettings();
+  const theme = useTheme();
+  const {
+    drawerWidth,
+    collapsed,
+    setOpen,
+    isMainDrawerOpen,
+    setIsMainDrawerOpen,
+  } = useSettings();
+
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const drawer = (
     <>
@@ -84,7 +95,33 @@ const SideDrawer = () => {
     </>
   );
 
-  return (
+  return matches ? (
+    <Drawer
+      variant="temporary"
+      ModalProps={{
+        keepMounted: true,
+      }}
+      sx={{
+        "& .MuiDrawer-paper": {
+          boxSizing: "border-box",
+          width: WIDTH,
+        },
+      }}
+      anchor="left"
+      open={isMainDrawerOpen}
+      onClose={() => setIsMainDrawerOpen(false)}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100%",
+        }}
+      >
+        {drawer}
+      </Box>
+    </Drawer>
+  ) : (
     <Drawer
       sx={{
         width: drawerWidth,

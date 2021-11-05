@@ -12,7 +12,11 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     alignItems: "stretch",
   },
-  main: {},
+  addWidth: {
+    [theme.breakpoints.down("md")]: {
+      minWidth: 0,
+    },
+  },
 }));
 
 const Layout = ({ children }) => {
@@ -22,7 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <Box className={classes.box}>
-      <Box minWidth={drawerWidth} />
+      <Box minWidth={drawerWidth} className={classes.addWidth} />
       <Box
         sx={{
           padding: "1rem",

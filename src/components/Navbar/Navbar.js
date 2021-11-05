@@ -6,8 +6,6 @@ import {
   List,
   ListItem,
   ListItemAvatar,
-  Menu,
-  Paper,
   Popover,
   Toolbar,
   Typography,
@@ -16,6 +14,10 @@ import React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Box } from "@mui/system";
 import PersonIcon from "@mui/icons-material/Person";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useSettings } from "../../context/SettingsProvider";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/styles";
 
 const NotificationMessages = () => {
   return (
@@ -82,6 +84,9 @@ const NotificationMessages = () => {
 };
 
 const Navbar = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const { setIsMainDrawerOpen } = useSettings();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -100,10 +105,20 @@ const Navbar = () => {
       <Toolbar
         sx={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: matches ? "space-between" : "flex-end",
         }}
         disableGutters
       >
+        {matches && (
+          <IconButton
+            size="large"
+            onClick={() => {
+              setIsMainDrawerOpen(true);
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
         <IconButton
           size="large"
           id="basic-button"

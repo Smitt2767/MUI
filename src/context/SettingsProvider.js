@@ -34,6 +34,7 @@ const SettingsProvider = ({ children }) => {
     getCollapsedDrawerState(get)
   );
   const [open, setOpen] = useState(false);
+  const [isMainDrawerOpen, setIsMainDrawerOpen] = useState(false);
 
   const handleModeChange = (value) => {
     setMode(value);
@@ -51,7 +52,9 @@ const SettingsProvider = ({ children }) => {
         drawerWidth: collapsed ? COLLAPSED_WIDTH : WIDTH,
         collapsed,
         open,
+        isMainDrawerOpen,
         setOpen,
+        setIsMainDrawerOpen,
         handleModeChange,
         hanldeCollapsedChange,
       }}
