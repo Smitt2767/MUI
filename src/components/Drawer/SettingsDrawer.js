@@ -32,6 +32,7 @@ const SettingsDrawer = () => {
         keepMounted: true,
       }}
       sx={{
+        zIndex: 1300,
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: WIDTH,

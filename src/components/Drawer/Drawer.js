@@ -12,7 +12,6 @@ import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { WIDTH } from "../../constants/drawer";
 import { useSettings } from "../../context/SettingsProvider";
 import Logo from "../Logo/Logo";
 import {
@@ -104,7 +103,7 @@ const SideDrawer = () => {
       sx={{
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
-          width: WIDTH,
+          width: drawerWidth,
         },
       }}
       anchor="left"
