@@ -25,12 +25,16 @@ export const darkPalette = {
   },
   primary: {
     main: "#64B5F6",
+    contrastText: "#263238",
   },
   secondary: {
     main: palette.grey[900],
   },
+  warning: {
+    main: "#FFC400",
+  },
   text: {
-    primary: palette.grey[100],
+    primary: palette.grey[50],
     secondary: palette.grey[300],
     disabled: palette.grey[600],
   },

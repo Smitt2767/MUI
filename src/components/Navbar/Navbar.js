@@ -106,6 +106,8 @@ const Navbar = () => {
         sx={{
           display: "flex",
           justifyContent: matches ? "space-between" : "flex-end",
+          bgcolor: "background.default",
+          py: "3rem",
         }}
         disableGutters
       >

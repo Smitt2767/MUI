@@ -25,6 +25,18 @@ export const createComponentsTheme = (theme) => ({
       },
     },
   },
+  MuiGrid: {
+    styleOverrides: {
+      root: {
+        width: "100%",
+      },
+    },
+  },
+  MuiPaper: {
+    defaultProps: {
+      elevation: 0,
+    },
+  },
   MuiDrawer: {
     styleOverrides: {
       paper: {
