@@ -32,6 +32,14 @@ export const createComponentsTheme = (theme) => ({
       },
     },
   },
+  MuiLinearProgress: {
+    styleOverrides: {
+      root: {
+        height: 12,
+        borderRadius: 6,
+      },
+    },
+  },
   MuiPaper: {
     defaultProps: {
       elevation: 0,

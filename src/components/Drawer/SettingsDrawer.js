@@ -87,7 +87,6 @@ const SettingsDrawer = () => {
               handleModeChange(e.target.value);
             }}
             buttons={modeButtons}
-            exclusive={true}
           />
         </Box>
         <Box marginBottom={3}>
@@ -107,7 +106,6 @@ const SettingsDrawer = () => {
               hanldeCollapsedChange(!!+e.target.value);
             }}
             buttons={sidebarCollapsedButtons}
-            exclusive={true}
           />
         </Box>
       </Box>

@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react";
 import { Box } from "@mui/system";
 import React from "react";
 
-const SvgContainer = ({ children, boxProps }) => {
+const SvgContainer = ({ children }) => {
   const theme = useTheme();
   return (
     <Box

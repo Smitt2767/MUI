@@ -40,8 +40,7 @@ const CustomSmallCard = ({ arrowColor, Icon, iconBgColor, Arrow }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        px: "1.5rem",
-        py: "1rem",
+        p: "1.5rem",
       }}
     >
       <Box
@@ -90,11 +89,16 @@ const ViewsSection = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        px: "1.5rem",
-        py: "1.9rem",
+        p: "1.5rem",
       }}
     >
-      <Typography variant="caption" fontSize="1rem" gutterBottom>
+      <Typography
+        variant="caption"
+        fontSize="1rem"
+        sx={{
+          mb: "1rem",
+        }}
+      >
         Views
       </Typography>
       <Typography variant="h2" gutterBottom>
@@ -102,8 +106,6 @@ const ViewsSection = () => {
       </Typography>
       <ResponsiveContainer width="100%" height={224}>
         <AreaChart
-          width={500}
-          height={400}
           data={data}
           margin={{
             top: 0,
@@ -126,10 +128,10 @@ const ViewsSection = () => {
 
           <Tooltip
             contentStyle={{
-              borderRadius: 16,
+              borderRadius: theme.shape.borderRadius,
               boxShadow: theme.shadows[3],
               backgroundColor: theme.palette.background.paper,
-              borderColor: theme.palette.background.paper,
+              border: "none",
             }}
           />
           <Area
@@ -146,7 +148,7 @@ const ViewsSection = () => {
       <Paper
         sx={{
           bgcolor: "background.default",
-          mt: "1.5rem",
+          mt: "1rem",
           py: "2rem",
           px: "1.5rem",
           width: "100%",
@@ -165,7 +167,7 @@ const ViewsSection = () => {
           <Avatar
             sx={{
               bgcolor: "background.paper",
-              color: "common.white",
+              color: "text.primary",
             }}
           >
             <DashboardIcon />
