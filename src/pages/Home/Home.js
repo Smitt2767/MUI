@@ -8,13 +8,7 @@ import Targets from "./Targets";
 
 const Home = () => {
   return (
-    <Grid
-      container
-      spacing={2}
-      sx={{
-        py: "2.5rem",
-      }}
-    >
+    <Grid container spacing={2}>
       <Grid item sm={12} md={6} lg={4}>
         <Greetings />
         <Congratulations />

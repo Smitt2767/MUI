@@ -82,7 +82,16 @@ export const createComponentsTheme = (theme) => ({
       },
     },
   },
-
+  MuiTableCell: {
+    styleOverrides: {
+      root: {
+        borderBottom: `1px solid ${theme.palette.divider}`,
+      },
+      sizeSmall: {
+        padding: "8px",
+      },
+    },
+  },
   MuiToggleButtonGroup: {
     styleOverrides: {
       root: {

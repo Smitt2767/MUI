@@ -121,7 +121,6 @@ const ViewsSection = () => {
             tick={{
               fill: theme.palette.text.secondary,
               fontSize: 12,
-              fontWeight: 800,
             }}
             tickLine={false}
           />

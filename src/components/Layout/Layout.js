@@ -44,7 +44,13 @@ const Layout = ({ children }) => {
         }}
       >
         <Navbar />
-        {children}
+        <Box
+          sx={{
+            py: "3rem",
+          }}
+        >
+          {children}
+        </Box>
       </Box>
     </Box>
   );
