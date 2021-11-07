@@ -42,7 +42,7 @@ const InfoProgressCard = ({ name, value, Icon }) => {
               mb: "0.5rem",
             }}
           >
-            <Typography variant="span" fontWeight={700} sontSize="1.2rem">
+            <Typography variant="span" fontWeight={700} fontSize="1.2rem">
               {name}
             </Typography>
             <Typography variant="span" color="textSecondary">

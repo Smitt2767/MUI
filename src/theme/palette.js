@@ -13,7 +13,7 @@ const palette = {
   },
 };
 
-export const darkPalette = {
+export const darkPalette = (primaryColor) => ({
   ...palette,
   contrastThreshold: 4.5,
   mode: "dark",
@@ -24,7 +24,7 @@ export const darkPalette = {
     main: "#4FC3F7",
   },
   primary: {
-    main: "#64B5F6",
+    main: primaryColor,
     contrastText: "#263238",
   },
   secondary: {
@@ -47,9 +47,9 @@ export const darkPalette = {
     selectedOpacity: 0,
     selected: palette.grey[800],
   },
-};
+});
 
-export const lightPalette = {
+export const lightPalette = (primaryColor) => ({
   ...palette,
   contrastThreshold: 3,
   mode: "light",
@@ -60,7 +60,7 @@ export const lightPalette = {
     main: "#00B0FF",
   },
   primary: {
-    main: "#2962FF",
+    main: primaryColor,
     contrastText: "#FFF",
   },
   secondary: {
@@ -86,4 +86,4 @@ export const lightPalette = {
     selectedOpacity: 0,
     selected: palette.grey[50],
   },
-};
+});

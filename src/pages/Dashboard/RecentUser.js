@@ -86,7 +86,7 @@ const RecentUser = () => {
       </Typography>
       <Grid container spacing={4}>
         {data.map((item) => (
-          <Grid item>
+          <Grid item key={item.name}>
             <RecentUserCard key={item.name} {...item} />
           </Grid>
         ))}

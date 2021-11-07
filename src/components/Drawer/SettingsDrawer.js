@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, IconButton, Typography } from "@mui/material";
+import { Drawer, IconButton, Radio, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { useSettings } from "../../context/SettingsProvider";
@@ -15,6 +15,26 @@ const sidebarCollapsedButtons = [
   { name: "Collapsed", value: "yes" },
   { name: "Full", value: "no" },
 ];
+
+const colors = ["#64B5F6", "#7BDCB5", "#F78DA7", "#607D8B"];
+
+const ColorPiker = () => {
+  const { primaryColor, setPrimaryColor } = useSettings();
+
+  return colors.map((color) => (
+    <Radio
+      key={color}
+      checked={primaryColor === color}
+      onChange={() => setPrimaryColor(color)}
+      value="a"
+      name="radio-buttons"
+      color="primary"
+      sx={{
+        color,
+      }}
+    />
+  ));
+};
 
 const SettingsDrawer = () => {
   const {
@@ -107,6 +127,18 @@ const SettingsDrawer = () => {
             }}
             buttons={sidebarCollapsedButtons}
           />
+        </Box>
+        <Box marginBottom={3}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold",
+            }}
+            gutterBottom
+          >
+            Primay Color
+          </Typography>
+          <ColorPiker />
         </Box>
       </Box>
     </Drawer>

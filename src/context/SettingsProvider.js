@@ -33,6 +33,7 @@ const SettingsProvider = ({ children }) => {
   const [collapsed, setCollapsed] = useState(() =>
     getCollapsedDrawerState(get)
   );
+  const [primaryColor, setPrimaryColor] = useState("#64B5F6");
 
   const [open, setOpen] = useState(false);
   const [isMainDrawerOpen, setIsMainDrawerOpen] = useState(false);
@@ -54,14 +55,18 @@ const SettingsProvider = ({ children }) => {
         collapsed,
         open,
         isMainDrawerOpen,
+        primaryColor,
         setOpen,
         setIsMainDrawerOpen,
         handleModeChange,
         hanldeCollapsedChange,
+        setPrimaryColor,
       }}
     >
       <CssBaseline />
-      <ThemeProvider theme={theme(mode)}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme(mode, primaryColor)}>
+        {children}
+      </ThemeProvider>
     </SettingsContext.Provider>
   );
 };

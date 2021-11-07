@@ -5,9 +5,10 @@ import shape from "./shape";
 import typography from "./typography";
 import { createComponentsTheme } from "./components";
 
-const theme = (mode) => {
+const theme = (mode, primaryColor) => {
   const baseTheme = {
-    palette: mode === "dark" ? darkPalette : lightPalette,
+    palette:
+      mode === "dark" ? darkPalette(primaryColor) : lightPalette(primaryColor),
     shape,
     typography,
   };
