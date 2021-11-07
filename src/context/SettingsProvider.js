@@ -33,6 +33,7 @@ const SettingsProvider = ({ children }) => {
   const [collapsed, setCollapsed] = useState(() =>
     getCollapsedDrawerState(get)
   );
+
   const [open, setOpen] = useState(false);
   const [isMainDrawerOpen, setIsMainDrawerOpen] = useState(false);
 

@@ -1,7 +1,6 @@
 import { Paper, Typography, Box } from "@mui/material";
 import React from "react";
 import LinearProgress from "@mui/material/LinearProgress";
-import { useTheme } from "@mui/styles";
 
 const ProgressContainer = ({ name, value, color }) => {
   return (
@@ -34,7 +33,6 @@ const ProgressContainer = ({ name, value, color }) => {
 };
 
 const Targets = () => {
-  const theme = useTheme();
   const targetsData = [
     { id: 1, name: "Views", value: 75, color: "primary.main" },
     { id: 2, name: "Followers", value: 50, color: "warning.main" },

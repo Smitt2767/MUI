@@ -12,8 +12,8 @@ const modeButtons = [
   { name: "Dark", value: "dark" },
 ];
 const sidebarCollapsedButtons = [
-  { name: "Collapsed", value: 1 },
-  { name: "Full", value: 0 },
+  { name: "Collapsed", value: "yes" },
+  { name: "Full", value: "no" },
 ];
 
 const SettingsDrawer = () => {
@@ -101,9 +101,9 @@ const SettingsDrawer = () => {
           </Typography>
           <ToggleButton
             size="large"
-            value={collapsed ? 1 : 0}
+            value={collapsed ? "yes" : "no"}
             onChange={(e) => {
-              hanldeCollapsedChange(!!+e.target.value);
+              hanldeCollapsedChange(e.target.value === "yes" ? true : false);
             }}
             buttons={sidebarCollapsedButtons}
           />

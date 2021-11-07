@@ -18,6 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useSettings } from "../../context/SettingsProvider";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/styles";
+import { useLocation } from "react-router-dom";
 
 const NotificationMessages = () => {
   return (
@@ -83,10 +84,7 @@ const NotificationMessages = () => {
   );
 };
 
-const Navbar = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-  const { setIsMainDrawerOpen } = useSettings();
+const ForHomePage = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -101,11 +99,76 @@ const Navbar = () => {
   const id = open ? "simple-popover" : undefined;
 
   return (
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "flex-end",
+      }}
+    >
+      <IconButton
+        size="large"
+        id="basic-button"
+        aria-controls="basic-menu"
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        <NotificationsIcon />
+      </IconButton>
+      <Popover
+        id={id}
+        elevation={0}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+      >
+        <Box
+          sx={{
+            px: 2,
+          }}
+        >
+          <List>
+            <NotificationMessages />
+          </List>
+          <Button
+            sx={{
+              padding: "1rem",
+              marginBottom: "1rem",
+            }}
+          >
+            See all notifications
+          </Button>
+        </Box>
+      </Popover>
+    </Box>
+  );
+};
+
+const ForDashboardPage = () => {
+  return (
+    <Typography variant="h2" fontWeight={900} color="textPrimary">
+      Dashbaord
+    </Typography>
+  );
+};
+
+const Navbar = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const { setIsMainDrawerOpen } = useSettings();
+  const location = useLocation();
+
+  return (
     <AppBar position="sticky">
       <Toolbar
         sx={{
           display: "flex",
-          justifyContent: matches ? "space-between" : "flex-end",
+
           bgcolor: "background.default",
           py: "3rem",
         }}
@@ -117,49 +180,15 @@ const Navbar = () => {
             onClick={() => {
               setIsMainDrawerOpen(true);
             }}
+            sx={{
+              mr: "0.5rem",
+            }}
           >
             <MenuIcon />
           </IconButton>
         )}
-        <IconButton
-          size="large"
-          id="basic-button"
-          aria-controls="basic-menu"
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClick}
-        >
-          <NotificationsIcon />
-        </IconButton>
-        <Popover
-          id={id}
-          elevation={0}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-        >
-          <Box
-            sx={{
-              px: 2,
-            }}
-          >
-            <List>
-              <NotificationMessages />
-            </List>
-            <Button
-              sx={{
-                padding: "1rem",
-                marginBottom: "1rem",
-              }}
-            >
-              See all notifications
-            </Button>
-          </Box>
-        </Popover>
+        {location.pathname === "/" && <ForHomePage />}
+        {location.pathname === "/dashboard" && <ForDashboardPage />}
       </Toolbar>
     </AppBar>
   );

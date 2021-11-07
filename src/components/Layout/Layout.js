@@ -2,6 +2,7 @@ import { makeStyles, useTheme } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { useSettings } from "../../context/SettingsProvider";
+import Navbar from "../Navbar/Navbar";
 
 const useStyle = makeStyles((theme) => ({
   box: {
@@ -42,6 +43,7 @@ const Layout = ({ children }) => {
           },
         }}
       >
+        <Navbar />
         {children}
       </Box>
     </Box>
