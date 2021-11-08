@@ -17,60 +17,76 @@ const Dashboard = () => {
       <Info />
       <Grid
         container
-        spacing={2}
+        columnSpacing={{
+          sm: 0,
+          md: 2
+        }}
+        rowSpacing={2}
         sx={{
           mb: "1rem",
         }}
       >
-        <Grid item xs={12} lg={8}>
+        <Grid item sm={12} lg={8}>
           <Activity />
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item sm={12} lg={4}>
           <Budget />
         </Grid>
       </Grid>
       <Grid
         container
-        spacing={2}
+        columnSpacing={{
+          sm: 0,
+          md: 2
+        }}
+        rowSpacing={2}
         sx={{
           mb: "1rem",
         }}
       >
-        <Grid item xs={12} lg={4}>
+        <Grid item sm={12} lg={4}>
           <SalesHistory />
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item sm={12} lg={4}>
           <InfoProgress />
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item sm={12} lg={4}>
           <Progress />
         </Grid>
       </Grid>
       <Grid
         container
-        spacing={2}
+        columnSpacing={{
+          sm: 0,
+          md: 2
+        }}
+        rowSpacing={2}
         sx={{
           mb: "1rem",
         }}
       >
-        <Grid item xs={12} lg={4}>
+        <Grid item sm={12} lg={4}>
           <RecentUser />
         </Grid>
-        <Grid item xs={12} lg={8}>
+        <Grid item sm={12} lg={8}>
           <TeamProgress />
         </Grid>
       </Grid>
       <Grid
         container
-        spacing={2}
+        columnSpacing={{
+          sm: 0,
+          md: 2
+        }}
+        rowSpacing={2}
         sx={{
           mb: "1rem",
         }}
       >
-        <Grid item xs={12} lg={4}>
+        <Grid item sm={12} lg={4}>
           <SalesByCategory />
         </Grid>
-        <Grid item xs={12} lg={8}>
+        <Grid item sm={12} lg={8}>
           <SalesByAge />
         </Grid>
       </Grid>

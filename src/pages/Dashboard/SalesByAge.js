@@ -1,4 +1,4 @@
-import { Paper, Typography } from "@mui/material";
+import { Paper, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/styles";
 import React from "react";
 import {
@@ -11,7 +11,8 @@ import {
 
 const SalesByAge = () => {
   const theme = useTheme();
-
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
+  
   const data = [
     {
       name: "18-39",
@@ -48,7 +49,7 @@ const SalesByAge = () => {
           mb: "1rem",
         }}
       >
-        Sales By Category
+        Sales By Age
       </Typography>
       <ResponsiveContainer width="100%" height={244}>
         <RadialBarChart
@@ -76,13 +77,16 @@ const SalesByAge = () => {
             }}
             dataKey="uv"
           />
-          <Legend
+          {isSmall ?<Legend
+            wrapperStyle={{ fontWeight: 700, fontSize: "0.8rem", marginTop: "1rem" }}
+            iconSize={16}
+          /> :<Legend
             align="right"
             wrapperStyle={{ fontWeight: 700, fontSize: "0.8rem" }}
             iconSize={16}
             layout="vertical"
             verticalAlign="middle"
-          />
+          />}
         </RadialBarChart>
       </ResponsiveContainer>
     </Paper>
