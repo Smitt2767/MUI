@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Badge,
   Button,
   IconButton,
   List,
@@ -107,7 +108,9 @@ const HomePageToolbar = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <NotificationsIcon />
+        <Badge variant="dot" color="error">
+          <NotificationsIcon />
+        </Badge>
       </IconButton>
       <Popover
         id={id}
