@@ -42,6 +42,7 @@ const Info = () => {
       spacing={2}
       sx={{
         mb: "1rem",
+        width: "calc(100% + 16px)"
       }}
     >
       {data.map((item) => (
