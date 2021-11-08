@@ -1,4 +1,4 @@
-import { LinearProgress, Paper, Typography } from "@mui/material";
+import { LinearProgress, Paper, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -6,7 +6,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { Box } from "@mui/system";
+import { Box, useTheme } from "@mui/system";
 
 const teams = [
   {
@@ -40,6 +40,9 @@ const teams = [
 ];
 
 const TeamProgress = () => {
+  const theme = useTheme()
+  const isXs = useMediaQuery(theme.breakpoints.only("xs"))
+  console.log(isXs)
   return (
     <Paper
       sx={{
@@ -81,14 +84,14 @@ const TeamProgress = () => {
                   </TableCell>
                   <TableCell>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                      <Box sx={{ flexGrow: 1, mr: 3 }}>
+                      {!isXs && <Box sx={{ flexGrow: 1, mr: 3 }}>
                         <LinearProgress
                           color="inherit"
                           sx={{ color: team.color }}
                           value={team.progress}
                           variant="determinate"
                         />
-                      </Box>
+                      </Box>}
                       <Box sx={{ minWidth: 35 }}>
                         <Typography
                           component="span"
