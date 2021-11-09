@@ -25,6 +25,7 @@ export const createComponentsTheme = (theme) => ({
       },
     },
   },
+
   MuiGrid: {
     styleOverrides: {
       root: {

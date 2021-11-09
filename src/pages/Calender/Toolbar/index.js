@@ -1,9 +1,12 @@
 import { IconButton, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { alpha, Box } from "@mui/system";
 import React from "react";
 import AddIcon from "@mui/icons-material/Add";
+import {setAddEditModal} from '../store/calendarSlice';
+import {useDispatch} from 'react-redux';
 
 const CalendarToolbar = () => {
+  const dispatch = useDispatch()
   return (
     <Box
       sx={{
@@ -19,10 +22,15 @@ const CalendarToolbar = () => {
       <IconButton
         size="large"
         sx={{
-          bgcolor: "primary.light",
+          bgcolor: "primary.main",
           ":hover": {
-            bgcolor: "primary.main",
+            bgcolor: theme =>  alpha(theme.palette.primary.main, 0.9),
           },
+        }}
+        onClick={() => {
+          dispatch(setAddEditModal({
+            isOpen: true
+          }))
         }}
       >
         <AddIcon />

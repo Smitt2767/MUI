@@ -1,11 +1,12 @@
 import React from "react";
-import { Drawer, IconButton, Radio, Typography } from "@mui/material";
+import { Drawer, IconButton,  Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { useSettings } from "../../context/SettingsProvider";
-import { WIDTH } from "../../constants/drawer";
+import { WIDTH, colors } from "../../constants/drawer";
 import { Box } from "@mui/system";
 import ToggleButton from "../ToggleButton/ToggleButton";
+import ColorPiker from "../ColorPicker/ColorPicker";
 
 const modeButtons = [
   { name: "Light", value: "light" },
@@ -16,26 +17,6 @@ const sidebarCollapsedButtons = [
   { name: "Full", value: "no" },
 ];
 
-const colors = ["#64B5F6", "#7BDCB5", "#F78DA7", "#607D8B"];
-
-const ColorPiker = () => {
-  const { primaryColor, setPrimaryColor } = useSettings();
-
-  return colors.map((color) => (
-    <Radio
-      key={color}
-      checked={primaryColor === color}
-      onChange={() => setPrimaryColor(color)}
-      value="a"
-      name="radio-buttons"
-      color="primary"
-      sx={{
-        color,
-      }}
-    />
-  ));
-};
-
 const SettingsDrawer = () => {
   const {
     setOpen,
@@ -44,7 +25,10 @@ const SettingsDrawer = () => {
     collapsed,
     handleModeChange,
     hanldeCollapsedChange,
+    primaryColor,
+    setPrimaryColor,
   } = useSettings();
+
   return (
     <Drawer
       variant="temporary"
@@ -138,7 +122,13 @@ const SettingsDrawer = () => {
           >
             Primay Color
           </Typography>
-          <ColorPiker />
+          <ColorPiker
+            colors={colors}
+            selectedColor={primaryColor}
+            onChange={(value) => {
+              setPrimaryColor(value);
+            }}
+          />
         </Box>
       </Box>
     </Drawer>
