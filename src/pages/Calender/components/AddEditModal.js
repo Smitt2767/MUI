@@ -123,7 +123,7 @@ const AddEditModal = () => {
               )}
             />
             <MobileDatePicker
-              value={formik.values.start}
+              value={formik.values.end}
               onChange={(newValue) => {
                 formik.setFieldValue("end", newValue);
               }}
